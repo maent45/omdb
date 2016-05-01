@@ -2,13 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>omdb</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
-<body>
+<body ng-app="omdbApp" ng-cloak>
+
+    <section class="container">
+        <!--- top --->
+        <div class="top_sec" ng-controller="omdbController">
+            <h1>Netflix Roullete</h1>
+            <form>
+                <div class="form-group">
+                    <label for="title_input">Title:</label>
+                    <input type="text" class="form-control" id="title_input" placeholder="Enter movie or show title">
+                    <br/>
+                    <button class="btn btn-info" ng-click="getMovie()">Search</button>
+                </div>
+            </form>
+
+            <div ng-repeat="movie in movies">
+                <!--<h2 ng-repeat="movie in movies">{{movie.data.show.name}}</h2>-->
+            </div>
+            <!--<p>{{movies.data.status}}</p>-->
+        </div>
+
+    </section>
 
     <!--- scripts --->
+    <script src="js/app.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
